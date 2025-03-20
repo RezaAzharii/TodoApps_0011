@@ -103,6 +103,39 @@ class _TodoAppState extends State<TodoApp> {
                       ),
                     ],
                   ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: "Task",
+                            hintText: "Masukkan Task",
+                            filled: true,
+                            fillColor: Colors.grey[200],
+                            contentPadding: EdgeInsets.all(16),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.pinkAccent),
+                            ),
+                            labelStyle: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),
+                            hintStyle: TextStyle(color: Colors.grey),
+                            floatingLabelStyle: TextStyle(
+                              color: Colors.pinkAccent,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
