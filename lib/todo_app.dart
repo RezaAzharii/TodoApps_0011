@@ -8,6 +8,8 @@ class TodoApp extends StatefulWidget {
 }
 
 class _TodoAppState extends State<TodoApp> {
+  final GlobalKey<FormState> key = GlobalKey<FormState>();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +28,7 @@ class _TodoAppState extends State<TodoApp> {
         padding: EdgeInsets.all(18),
         child: Column(
           children: [
-            
+
           ],
         ),
       ),
