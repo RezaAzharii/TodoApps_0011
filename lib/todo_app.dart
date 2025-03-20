@@ -93,7 +93,7 @@ class _TodoAppState extends State<TodoApp> {
                         ],
                       ),
                       IconButton(
-                        onPressed:() {},
+                        onPressed: _showDatePicker,
                         icon: Icon(
                           Icons.date_range,
                           color: Colors.pinkAccent,
