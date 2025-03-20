@@ -1,4 +1,5 @@
 import 'package:basic_layout_pt2/profile_page.dart';
+import 'package:basic_layout_pt2/todo_app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      home: ProfilePage(),
+      home: TodoApp(),
     );
   }
 }
