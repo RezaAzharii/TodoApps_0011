@@ -144,13 +144,7 @@ class _TodoAppState extends State<TodoApp> {
                           controller: taskController,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              Text(
-                                "Silakan pilih deadline terlebih dahulu!",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.red,
-                                ),
-                              );
+                              return "Task Masih Kosong";
                             }
                             return null;
                           },
@@ -184,7 +178,17 @@ class _TodoAppState extends State<TodoApp> {
                       ),
                       SizedBox(width: 10),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (key.currentState!.validate() &&
+                              selectedDate != null) {
+                            addTask();
+                          } else {
+                            setState(() {
+                              _autoValidate =
+                                  AutovalidateMode.onUserInteraction;
+                            });
+                          }
+                        },
                         style: ButtonStyle(
                           backgroundColor: WidgetStateProperty.all(
                             Colors.pinkAccent,
