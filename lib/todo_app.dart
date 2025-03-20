@@ -14,6 +14,8 @@ class _TodoAppState extends State<TodoApp> {
   final GlobalKey<FormState> key = GlobalKey<FormState>();
   DateTime? selectedDate;
 
+  AutovalidateMode _autoValidate = AutovalidateMode.disabled;
+
   void _showDatePicker() {
     BottomPicker.dateTime(
       pickerTitle: Text(
