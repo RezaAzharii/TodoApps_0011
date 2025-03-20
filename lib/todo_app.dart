@@ -1,3 +1,5 @@
+import 'package:bottom_picker/bottom_picker.dart';
+import 'package:bottom_picker/resources/arrays.dart';
 import 'package:flutter/material.dart';
 
 class TodoApp extends StatefulWidget {
@@ -10,6 +12,40 @@ class TodoApp extends StatefulWidget {
 class _TodoAppState extends State<TodoApp> {
   final GlobalKey<FormState> key = GlobalKey<FormState>();
   DateTime? selectedDate;
+
+   void _showDatePicker() {
+    BottomPicker.dateTime(
+      pickerTitle: Text(
+        "Pilih Tanggal & Waktu",
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 20,
+          color: Colors.black,
+        ),
+      ),
+      buttonContent: Center(child: Text("Pilih")),
+      onChange: (date) {
+        setState(() {
+          selectedDate = date;
+        });
+      },
+      onSubmit: (date) {
+        setState(() {
+          selectedDate = date;
+        });
+      },
+      onCloseButtonPressed: () {
+        setState(() {
+          selectedDate = null;
+        });
+      },
+      minDateTime: DateTime.now(),
+      maxDateTime: DateTime(2025, 12, 31),
+      initialDateTime: selectedDate ?? DateTime.now(),
+      bottomPickerTheme: BottomPickerTheme.heavyRain,
+    ).show(context);
+  }
+
 
   @override
   Widget build(BuildContext context) {
