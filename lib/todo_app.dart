@@ -22,7 +22,14 @@ class _TodoAppState extends State<TodoApp> {
         leading: Icon(Icons.menu),
         foregroundColor: Colors.pinkAccent,
       ),
-
+      body: Padding(
+        padding: EdgeInsets.all(18),
+        child: Column(
+          children: [
+            
+          ],
+        ),
+      ),
     );
   }
 }
