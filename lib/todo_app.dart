@@ -94,6 +94,11 @@ class _TodoAppState extends State<TodoApp> {
                               color: Colors.grey[200],
                             ),
                           ),
+                          if (selectedDate == null && _autoValidate == AutovalidateMode.onUserInteraction)
+                            Text(
+                              "Silakan pilih deadline terlebih dahulu!",
+                              style: TextStyle(fontSize: 14, color: Colors.red),
+                            ),
                         ],
                       ),
                       IconButton(
@@ -111,6 +116,7 @@ class _TodoAppState extends State<TodoApp> {
                     children: [
                       Expanded(
                         child: TextFormField(
+                          controller: taskController,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               Text(
