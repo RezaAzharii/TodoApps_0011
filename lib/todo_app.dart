@@ -17,6 +17,28 @@ class _TodoAppState extends State<TodoApp> {
   List<Map<String, dynamic>> daftarTask = [];
   AutovalidateMode _autoValidate = AutovalidateMode.disabled;
 
+  void addTask() {
+    if (key.currentState!.validate()) {
+      setState(() {
+        daftarTask.add({
+          "task": taskController.text,
+          "deadline": selectedDate,
+          "status": false,
+        });
+        taskController.clear();
+        selectedDate = null;
+        _autoValidate = AutovalidateMode.disabled;
+      });
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Task berhasil ditambahkan!")));
+    } else {
+      setState(() {
+        _autoValidate = AutovalidateMode.onUserInteraction;
+      });
+    }
+  }
+
   void _showDatePicker() {
     BottomPicker.dateTime(
       pickerTitle: Text(
@@ -95,7 +117,9 @@ class _TodoAppState extends State<TodoApp> {
                               color: Colors.grey[200],
                             ),
                           ),
-                          if (selectedDate == null && _autoValidate == AutovalidateMode.onUserInteraction)
+                          if (selectedDate == null &&
+                              _autoValidate ==
+                                  AutovalidateMode.onUserInteraction)
                             Text(
                               "Silakan pilih deadline terlebih dahulu!",
                               style: TextStyle(fontSize: 14, color: Colors.red),
