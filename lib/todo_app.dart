@@ -14,6 +14,7 @@ class _TodoAppState extends State<TodoApp> {
   final GlobalKey<FormState> key = GlobalKey<FormState>();
   DateTime? selectedDate;
 
+  List<Map<String, dynamic>> daftarTask = [];
   AutovalidateMode _autoValidate = AutovalidateMode.disabled;
 
   void _showDatePicker() {
