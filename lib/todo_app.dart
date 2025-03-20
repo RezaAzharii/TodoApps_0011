@@ -106,11 +106,24 @@ class _TodoAppState extends State<TodoApp> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 10),
                   Row(
                     children: [
                       Expanded(
                         child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              Text(
+                                "Silakan pilih deadline terlebih dahulu!",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.red,
+                                ),
+                              );
+                            }
+                            return null;
+                          },
+                          autovalidateMode: _autoValidate,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: "Task",
