@@ -10,6 +10,19 @@ class TodoApp extends StatefulWidget {
 class _TodoAppState extends State<TodoApp> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: Text(
+          "Todo List",
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.black,
+        leading: Icon(Icons.menu),
+        foregroundColor: Colors.pinkAccent,
+      ),
+
+    );
   }
 }
