@@ -207,6 +207,81 @@ class _TodoAppState extends State<TodoApp> {
                 ],
               ),
             ),
+            SizedBox(height: 20),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "List Tasks",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey[200],
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Expanded(
+              child: ListView.builder(
+                itemCount: daftarTask.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    color: Color(0xFF3A3A3A),
+                    elevation: 3,
+                    margin: EdgeInsets.symmetric(vertical: 5),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                daftarTask[index]["task"],
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.pink[100],
+                                ),
+                              ),
+                              Text(
+                                "Deadline: ${daftarTask[index]["deadline"]!.day}-${daftarTask[index]["deadline"]!.month}-${daftarTask[index]["deadline"]!.year} ${daftarTask[index]["deadline"]!.hour}:${daftarTask[index]["deadline"]!.minute}",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey[200],
+                                ),
+                              ),
+                              Text(
+                                daftarTask[index]["status"]
+                                    ? "Selesai"
+                                    : "Belum Selesai",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      daftarTask[index]["status"]
+                                          ? Colors.green[300]
+                                          : Colors.red[300],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Checkbox(
+                            activeColor: Colors.pinkAccent,
+                            value: daftarTask[index]["status"],
+                            onChanged: (bool? value) {
+                              setState(() {
+                                daftarTask[index]["status"] = value!;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
