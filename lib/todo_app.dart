@@ -10,6 +10,7 @@ class TodoApp extends StatefulWidget {
 }
 
 class _TodoAppState extends State<TodoApp> {
+  final TextEditingController taskController = TextEditingController();
   final GlobalKey<FormState> key = GlobalKey<FormState>();
   DateTime? selectedDate;
 
