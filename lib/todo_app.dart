@@ -13,7 +13,7 @@ class _TodoAppState extends State<TodoApp> {
   final GlobalKey<FormState> key = GlobalKey<FormState>();
   DateTime? selectedDate;
 
-   void _showDatePicker() {
+  void _showDatePicker() {
     BottomPicker.dateTime(
       pickerTitle: Text(
         "Pilih Tanggal & Waktu",
@@ -45,7 +45,6 @@ class _TodoAppState extends State<TodoApp> {
       bottomPickerTheme: BottomPickerTheme.heavyRain,
     ).show(context);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +83,9 @@ class _TodoAppState extends State<TodoApp> {
                             ),
                           ),
                           Text(
-                            "Pilih Deadline",
+                            selectedDate != null
+                                ? "${selectedDate!.day}-${selectedDate!.month}-${selectedDate!.year} ${selectedDate!.hour}:${selectedDate!.minute}"
+                                : "Pilih Deadline",
                             style: TextStyle(
                               fontSize: 18,
                               color: Colors.grey[200],
@@ -102,10 +103,9 @@ class _TodoAppState extends State<TodoApp> {
                       ),
                     ],
                   ),
-
                 ],
-              )
-            )
+              ),
+            ),
           ],
         ),
       ),
