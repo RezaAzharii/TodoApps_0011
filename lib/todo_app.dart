@@ -103,6 +103,7 @@ class _TodoAppState extends State<TodoApp> {
                       ),
                     ],
                   ),
+                  SizedBox(height: 10,),
                   Row(
                     children: [
                       Expanded(
@@ -132,6 +133,22 @@ class _TodoAppState extends State<TodoApp> {
                             ),
                           ),
                           style: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStateProperty.all(
+                            Colors.pinkAccent,
+                          ),
+                        ),
+                        child: Text(
+                          "Save",
+                          style: TextStyle(
+                            color: Colors.grey[200],
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ],
